@@ -81,7 +81,7 @@ export async function initStore(): Promise<void> {
     /* fall through to localStorage */
   }
   if (!valid(loaded)) loaded = lsGet();
-  state = valid(loaded) ? loaded : seed();
+  state = valid(loaded) ? loaded : emptyState();
   if (!valid(loaded)) persist();
   try {
     await navigator.storage?.persist?.();
