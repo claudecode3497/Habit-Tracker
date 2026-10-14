@@ -63,6 +63,14 @@
     color: var(--c-ink);
   }
 
+  /* Keep content below the Android/iOS status bar and clear of display cutouts.
+     env() is 0 in browsers and wherever the system already pads the webview. */
+  body {
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+
   body {
     font-family: var(--font-sans);
     line-height: 1.5;

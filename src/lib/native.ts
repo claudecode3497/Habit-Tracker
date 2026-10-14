@@ -69,3 +69,21 @@ export async function saveTextFile(filename: string, content: string, type: stri
   const written = await Filesystem.writeFile({ path: filename, data: content, directory: Directory.Cache, encoding: Encoding.UTF8 });
   await Share.share({ title: filename, url: written.uri, dialogTitle: "Save your Cadence backup" });
 }
+
+/**
+ * Keeps the status-bar and navigation-bar icons readable: light icons when the
+ * app is in dark mode, dark icons in light mode (the app theme can differ from the phone's).
+ */
+export function watchSystemBarStyle(): void {
+  if (!isNative) return;
+  const apply = async () => {
+    const { SystemBars, SystemBarsStyle } = await import("@capacitor/core");
+    const dark = document.documentElement.classList.contains("dark");
+    await SystemBars.setStyle({ style: dark ? SystemBarsStyle.Dark : SystemBarsStyle.Light });
+  };
+  void apply().catch(() => {});
+  new MutationObserver(() => void apply().catch(() => {})).observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+}

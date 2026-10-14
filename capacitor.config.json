@@ -2,10 +2,23 @@
   "appId": "com.cadence.habits",
   "appName": "Cadence",
   "webDir": "dist",
-  "android": { "backgroundColor": "#f3f1ec" },
-  "ios": { "backgroundColor": "#f3f1ec" },
+  "android": {
+    "backgroundColor": "#f3f1ec"
+  },
+  "ios": {
+    "backgroundColor": "#f3f1ec"
+  },
   "plugins": {
-    "SplashScreen": { "launchShowDuration": 0, "backgroundColor": "#f3f1ec" },
-    "LocalNotifications": { "iconColor": "#234E3C" }
+    "SplashScreen": {
+      "launchShowDuration": 0,
+      "backgroundColor": "#f3f1ec"
+    },
+    "LocalNotifications": {
+      "iconColor": "#234E3C"
+    },
+    "SystemBars": {
+      "insetsHandling": "native",
+      "initialViewportFitValueHint": "cover"
+    }
   }
 }

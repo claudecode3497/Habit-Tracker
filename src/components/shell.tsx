@@ -96,7 +96,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
   return (
     <DialogContext.Provider value={api}>
-      <div className="min-h-dvh bg-canvas text-ink md:grid md:grid-cols-[14rem_minmax(0,1fr)]">
+      <div className="min-h-[calc(100dvh-env(safe-area-inset-top,0px))] bg-canvas text-ink md:grid md:grid-cols-[14rem_minmax(0,1fr)]">
         <aside className="sticky top-0 hidden h-dvh flex-col border-r border-line bg-paper px-4 py-6 md:flex">
           <Brand />
           <nav className="mt-8 grid gap-1">

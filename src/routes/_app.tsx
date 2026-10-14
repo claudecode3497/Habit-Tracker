@@ -20,6 +20,7 @@ function AppLayout() {
       </AppShell>
       <Toaster
         position="top-center"
+        offset="calc(env(safe-area-inset-top, 0px) + 16px)"
         toastOptions={{
           style: {
             background: "var(--c-paper)",
