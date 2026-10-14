@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" suppressHydrationWarning>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Cadence</title>
+    <meta name="description" content="Cadence tracks check-offs, counts, and timed sessions." />
+    <meta name="theme-color" content="#f3f1ec" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Cadence" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/icon-180.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <script>
+      try {
+        var t = localStorage.getItem("cadence-theme");
+        if (t === "dark" || (!t && matchMedia("(prefers-color-scheme: dark)").matches))
+          document.documentElement.classList.add("dark");
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

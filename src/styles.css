@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+  --c-canvas: #f3f1ec;
+  --c-paper: #fbfaf7;
+  --c-elevated: #efece6;
+  --c-ink: #1c1b18;
+  --c-muted: #5e5a54;
+  --c-faint: #8a847b;
+  --c-line: #e3ded5;
+  --c-accent: #234e3c;
+  --c-accent-fg: #f4f7f5;
+  --c-accent-soft: #e4eee8;
+  --c-danger: #8d3b32;
+}
+
+.dark {
+  color-scheme: dark;
+  --c-canvas: #121311;
+  --c-paper: #1c1d1a;
+  --c-elevated: #262722;
+  --c-ink: #f3f1ec;
+  --c-muted: #b7b1a7;
+  --c-faint: #8e887f;
+  --c-line: #34352f;
+  --c-accent: #d5e6dc;
+  --c-accent-fg: #15241c;
+  --c-accent-soft: #24312b;
+  --c-danger: #f0b7b0;
+}
+
+@theme inline {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", "Iowan Old Style", Palatino, Georgia, serif;
+  --color-canvas: var(--c-canvas);
+  --color-paper: var(--c-paper);
+  --color-elevated: var(--c-elevated);
+  --color-ink: var(--c-ink);
+  --color-muted: var(--c-muted);
+  --color-faint: var(--c-faint);
+  --color-line: var(--c-line);
+  --color-accent: var(--c-accent);
+  --color-accent-fg: var(--c-accent-fg);
+  --color-accent-soft: var(--c-accent-soft);
+  --color-danger: var(--c-danger);
+  --radius-xl: 0.75rem;
+  --radius-3xl: 1.75rem;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled),
+  summary {
+    cursor: pointer;
+  }
+
+  html,
+  body {
+    background: var(--c-canvas);
+    color: var(--c-ink);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    min-height: 100dvh;
+  }
+
+  ::selection {
+    background: var(--c-accent-soft);
+    color: var(--c-ink);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
